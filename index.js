@@ -13,7 +13,7 @@ let sdb;
 
 app.get("/ping", (req, res) => {
   res.send("pong");
-}
+});
 
 app.ws("/", (ws, req) => { 
   let i = false;
