@@ -1,14 +1,21 @@
-const wws = require("ws");
+const wws = require("express-ws");
+const exp = require("express");
 const jDB = require("simple-json-db");
 const cryptojs = require("crypto-js");
-const wss = new wws.Server({ port: 8080 });
+
+const app = exp();
+const ws = wws(app);
 
 let clients = {};
 let sclients = {};
 
 let sdb;
 
-wss.on("connection", (ws) => {  
+app.get("/ping", (req, res) => {
+  res.send("pong");
+}
+
+app.ws("/", (ws, req) => { 
   let i = false;
   ws.on("message", (data) => {
     sdb = new jDB("./spaces.json");
@@ -65,6 +72,10 @@ wss.on("connection", (ws) => {
       }), clients[data.id].space);
     }
   });
+});
+
+app.listen(8080, () => {
+  console.log("PS-01 is up and running!");
 });
 
 function isJSON(str) {
