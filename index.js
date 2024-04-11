@@ -4,7 +4,7 @@ const jDB = require("simple-json-db");
 const cryptojs = require("crypto-js");
 
 const app = exp();
-const ws = wws(app);
+const wss = wws(app);
 
 let clients = {};
 let sclients = {};
@@ -89,8 +89,8 @@ function isJSON(str) {
 
 function broadcast(data, space = null) {
   if (space == null) {
-    wss.clients.forEach(client => {
-      client.send(data);
+    clients.forEach(client => {
+      client._ws.send(data);
     });
   } else {
     console.log(sclients[space]);
@@ -123,7 +123,3 @@ function cInt(ws, data, i) {
     return true;
   }
 }
-
-wss.on("listening", () => {
-  console.log("PushSocket is listening on port 8080");
-});
