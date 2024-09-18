@@ -1,0 +1,11 @@
+name: Install Packages
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install Packages
+      run: npm i express-ws express simple-json-db crypto-js
