@@ -8,4 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Install Packages
-      run: npm i express-ws express simple-json-db crypto-js
+      run: |
+        config --global user.name "github-actions[bot]"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git remote set-url origin https://github-actions[bot]:${{ secrets.GITHUB_TOKEN }}@github.com/NullClock/pushserver
+        npm i express-ws express simple-json-db crypto-js
+        git add package.json
+        git push
