@@ -74,7 +74,7 @@ app.ws("/", (ws, req) => {
   });
 });
 
-app.listen(8080, () => {
+app.listen(4055, () => {
   console.log("PS-01 is up and running!");
 });
 
