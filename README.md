@@ -1,3 +1,5 @@
+# EOL.
+The PushSocket project has been entirely stopped in favor of our new service, QuickSub. PushSocket was developed in a rush and was made when I first began to explore topics like this, and now that I have experience with working with products in the field, i'll be able to successfully make something better that benefits everyone.Thanks for using PushSocket. When made public, QuickSub will be at [RE:world's Github](https://github.com/REWORLD-CO).
 # PushServer
 PushServer is the backend WebSocket server used for [PushSocket.js](https://pushsocket.github.io/). This repo contains all code for it, including a regularly updated spaces.json database, making sure your server can just be plugged 'n played.
 ### Connecting to a custom PushServer
